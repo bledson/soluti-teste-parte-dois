@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Soluti teste parte dois
+  description: Soluti teste parte dois
+  version: 1.0.0
+servers:
+  - url: 'http://localhost:8080'
+tags:
+  - name: users
+paths:
+  /users/{id}:
+    get:
+      tags:
+        - users
+      description: Obtain information about an user from his or her unique id
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        200:
+          description: Successfully returned an user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  cpf:
+                    type: string
+                  email:
+                    type: string
+                  birthday:
+                    type: string
+                  certificate:
+                    type: object
+                  address:
+                    type: string
+      security:
+        - api_key: []
+  /users:
+    post:
+      tags:
+        - users
+      description: Stores a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - cpf
+                - email
+              properties:
+                name:
+                  type: string
+                cpf:
+                  type: string
+                email:
+                  type: string
+                birthday:
+                  type: string
+                certificate:
+                  type: object
+                address:
+                  type: string
+      responses:
+        200:
+          description: Successfully created a new user
+      security:
+        - api_key: []
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: header

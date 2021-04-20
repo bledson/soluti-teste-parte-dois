@@ -1,0 +1,35 @@
+<div *ngIf="certificate !== undefined">
+  <h1 class="center">Informações do seu Certificado</h1>
+
+  <mat-list>
+    <mat-list-item>
+      <p>DN: {{ certificate.dn }}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>Issuer DN: {{ certificate.issuerDn }}</p>
+    </mat-list-item>
+    <mat-list-item>
+      <p>Validity: </p>
+      <mat-list>
+        <mat-list-item>
+          <p>Not Before: {{ certificate.validity.notBefore.utcTime }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <p>Not After: {{ certificate.validity.notAfter.utcTime }}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-list-item>
+  </mat-list>
+</div>
+<!--*ngIf="certificate === undefined"-->
+<form>
+  <h2 class="center">Upload Certificate</h2>
+
+  <div class="mat-form-field-wrapper">
+    <input (change)="setFile($event)" type="file" required>
+  </div>
+
+  <div class="center">
+    <button color="accent" mat-raised-button [disabled]="file === undefined" (click)="upload()">Upload</button>
+  </div>
+</form>

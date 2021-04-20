@@ -1,0 +1,13 @@
+<div style="display: flex">
+  <mat-toolbar color="accent">
+    <span>Soluti Teste Parte Dois</span>
+    <span class="spacer"></span>
+    <a *ngIf="displayEntryLinks()" mat-button routerLink="/login" routerLinkActive="active">Login</a>
+    <a *ngIf="displayEntryLinks()" mat-button routerLink="/register" routerLinkActive="active">Register</a>
+    <a *ngIf="displayExitLink()" mat-button routerLink="/certificate" routerLinkActive="active">Certificate</a>
+  </mat-toolbar>
+</div>
+
+<div class="center top-padding">
+  <router-outlet></router-outlet>
+</div>
