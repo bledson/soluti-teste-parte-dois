@@ -3,6 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\UserCreated;
+use Carbon\Traits\Date;
 use Illuminate\Support\Facades\Log;
 
 class LogCreatedUser
@@ -20,11 +21,11 @@ class LogCreatedUser
     /**
      * Handle the event.
      *
-     * @param  UserCreated  $event
+     * @param UserCreated $event
      * @return void
      */
     public function handle(UserCreated $event)
     {
-        Log::channel('app')->info('user created with email ' . $event->user->email);
+        Log::channel('app')->info('user created with email ' . $event->user->email . ' at ' . Date::now());
     }
 }
