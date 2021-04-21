@@ -21,8 +21,8 @@
     </mat-list-item>
   </mat-list>
 </div>
-<!--*ngIf="certificate === undefined"-->
-<form>
+
+<form *ngIf="certificate === undefined">
   <h2 class="center">Upload Certificate</h2>
 
   <div class="mat-form-field-wrapper">
