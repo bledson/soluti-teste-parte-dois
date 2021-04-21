@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -49,7 +48,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getCertificateAttribute($value) {
+    public function getCertificateAttribute($value)
+    {
         if (is_null($value)) {
             return null;
         }
@@ -63,7 +63,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function setCpfAttribute($value) {
+    public function setCpfAttribute($value)
+    {
         $this->attributes['cpf'] = str_replace(['.', '-'], '', $value);
     }
 }

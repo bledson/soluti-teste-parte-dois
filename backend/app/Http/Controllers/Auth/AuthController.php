@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $validatedData = $request->validate([
             'name' => 'required|string',
             'cpf' => 'required|string|unique:App\Models\User,cpf',
@@ -41,7 +42,8 @@ class AuthController extends Controller
         return response(['user' => $user, 'token' => $token], 201);
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required|string'
