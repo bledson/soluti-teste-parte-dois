@@ -17,6 +17,7 @@
 
 ## o que faltou fazer
 * consegui salvar o certificado usando postman, mas pela aplicação o upload falha sem erro significativo, o que dificultou a depuração, apesar que outros endpoints funcionam corretamente
+* docker-compose.yml para rodar a aplicação de forma mais simples, atualmente utilizei podman e um pod para agrupar as dependencias de infra (php, node com angular e mysql)
 
 ## o que poderia ter sido melhor
 * interface (espaçamento, cores)
