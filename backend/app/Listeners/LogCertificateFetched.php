@@ -3,7 +3,7 @@
 namespace App\Listeners;
 
 use App\Events\CertificateRead;
-use Carbon\Traits\Date;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Log;
 
 class LogCertificateFetched
